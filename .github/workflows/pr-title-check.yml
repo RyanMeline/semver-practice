@@ -1,52 +1,12 @@
-name: pr-title-check
-
-# Controls when the workflow will run
+name: PR title check
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   pull_request:
-    branches: [ "main" ]
+    types: [opened, edited, synchronize]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  pr-title:
+  lint-pr-title:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      statuses: write
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
-
-      - name: Conventional PR Title
-        uses: amannn/action-semantic-pull-request@v5
-        permissions:
-          contents: read
-          statuses: write
+      - uses: amannn/action-semantic-pull-request@v5
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Conventional PR Title
-  # You may pin to the exact commit or the version.
-  # uses: aslafy-z/conventional-pr-title-action@a0b851005a0f82ac983a56ead5a8111c0d8e044a
-        uses: aslafy-z/conventional-pr-title-action@v3.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # Description of the status check if validation succeeds.
-          success-state: # optional, default is Title follows the specification.
-          # Description of the status check if validation fails.
-          failure-state: # optional, default is Title does not follow the specification.
-          # Persistent status check context key
-          context-name: # optional, default is conventional-pr-title
-          # Conventional changelog preset to use.
-          preset: # optional, default is conventional-changelog-conventionalcommits@7
-          # URL to be used when linking the "Details" in the actions overview.
-          target-url: # optional, default is https://www.conventionalcommits.org/en/v1.0.0/#summary
-
-      # Runs a single command using the runners shell
-      
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}     

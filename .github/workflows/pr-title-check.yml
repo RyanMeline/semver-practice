@@ -29,6 +29,8 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: aslafy-z/conventional-pr-title-action@a0b851005a0f82ac983a56ead5a8111c0d8e044a
         uses: aslafy-z/conventional-pr-title-action@v3.2.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           # Description of the status check if validation succeeds.
           success-state: # optional, default is Title follows the specification.

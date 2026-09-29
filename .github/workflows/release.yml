@@ -18,19 +18,7 @@ jobs:
           scope: RyanMeline/semver-practice
           identity: release
 
-      - uses: actions/checkout@v4
+      - uses: googleapis/release-please-action@v4
         with:
           token: ${{ steps.octo-sts.outputs.token }}
-          fetch-depth: 0   # semantic-release needs full history, not a shallow clone
-          persist-credentials: false
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - run: npm ci
-
-      - name: Semantic Release
-        env:
-          GITHUB_TOKEN: ${{ steps.octo-sts.outputs.token }}
-        run: npx semantic-release
+          release-type: simple

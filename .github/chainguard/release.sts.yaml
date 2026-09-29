@@ -1,5 +1,5 @@
 issuer: https://token.actions.githubusercontent.com
-subject: repo:ryanmeline/semver-practice:ref:refs/heads/main
+subject: repo:RyanMeline/semver-practice:ref:refs/heads/main
 
 permissions:
   contents: write

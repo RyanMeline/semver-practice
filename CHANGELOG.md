@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/RyanMeline/semver-practice/compare/v1.0.0...v1.1.0) (2026-09-29)
+
+
+### Features
+
+* implement automated push to GHCR ([#12](https://github.com/RyanMeline/semver-practice/issues/12)) ([d3c3aac](https://github.com/RyanMeline/semver-practice/commit/d3c3aac0e9cbccb4e1be9951ad2771b29bdb11fb))
+
 ## 1.0.0 (2026-09-29)
 
 
